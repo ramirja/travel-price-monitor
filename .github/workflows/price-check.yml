@@ -1,0 +1,23 @@
+# .github/workflows/price-check.yml
+name: Daily Cruise Price Check
+
+on:
+  schedule:
+    - cron: '0 13 * * *'  # 1PM UTC = 9AM EST, adjust as needed
+  workflow_dispatch: {}    # lets you trigger manually to test
+
+jobs:
+  check-price:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node scrape-price.js
+        env:
+          CRUISE_URL: ${{ secrets.CRUISE_URL }}
+          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
+          N8N_WEBHOOK_SECRET: ${{ secrets.N8N_WEBHOOK_SECRET }}
