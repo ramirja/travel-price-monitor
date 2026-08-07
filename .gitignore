@@ -1,1 +1,27 @@
+# Dependencies
+node_modules/
 
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+
+# Screenshots and videos generated during tests
+screenshots/generated/
+videos/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VS Code local settings
+.vscode/
+
+# Logs
+*.log
+logs/

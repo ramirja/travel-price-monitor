@@ -1,0 +1,26 @@
+{
+  "name": "travel-price-monitor",
+  "version": "1.0.0",
+  "description": "An AI powered agent that checks daily for pricing on cruises, flights, hotels and alerts when prices drop. It provides recommendations on when to buy based on historical information",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ramirja/travel-price-monitor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ramirja/travel-price-monitor/issues"
+  },
+  "homepage": "https://github.com/ramirja/travel-price-monitor#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}
