@@ -6,7 +6,7 @@ const WEBHOOK_URL = process.env.N8N_WEBHOOK_URL;
 const WEBHOOK_SECRET = process.env.N8N_WEBHOOK_SECRET;
 
 (async () => {
-  const browser = await chromium.launch({ headless: true });
+  const browser = await chromium.launch({ headless: false });
   const page = await browser.newPage({
     userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
     viewport: { width: 1280, height: 900 }
