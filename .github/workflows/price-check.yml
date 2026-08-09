@@ -21,3 +21,13 @@ jobs:
           CRUISE_URL: ${{ secrets.CRUISE_URL }}
           N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
           N8N_WEBHOOK_SECRET: ${{ secrets.N8N_WEBHOOK_SECRET }}
+
+      - name: Upload failure evidence
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: failure-debug
+          path: |
+            failure-screenshot.png
+            failure-page.html
+          retention-days: 3
