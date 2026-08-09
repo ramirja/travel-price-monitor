@@ -13,17 +13,17 @@ const WEBHOOK_SECRET = process.env.N8N_WEBHOOK_SECRET;
   });
 
   try {
-    await page.goto(CRUISE_URL, { waitUntil: 'networkidle', timeout: 90000 }); // was 60000
-    // After initial goto, before waiting for price
-      try {
-        const cookieBanner = page.locator('button:has-text("Accept"), button:has-text("Manage Preferences")').first();
-        if (await cookieBanner.isVisible({ timeout: 5000 })) {
-          await page.locator('button:has-text("Accept")').first().click({ timeout: 5000 }).catch(() => {});
-        }
-      } catch { /* banner didn't appear, fine */ }
+    await page.goto(CRUISE_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
+
+    try {
+      const cookieBanner = page.locator('button:has-text("Accept"), button:has-text("Manage Preferences")').first();
+      if (await cookieBanner.isVisible({ timeout: 5000 })) {
+        await page.locator('button:has-text("Accept")').first().click({ timeout: 5000 }).catch(() => {});
+      }
+    } catch { /* banner didn't appear, fine */ }
 
     const priceLocator = page.locator('[data-testid="funnel-footer-total-price"]');
-    await priceLocator.waitFor({ state: 'visible', timeout: 60000 }); // was 30000
+    await priceLocator.waitFor({ state: 'visible', timeout: 60000 });
 
     const rawText = await priceLocator.textContent();
     const price = parseFloat(rawText.replace(/[^0-9.]/g, ''));
