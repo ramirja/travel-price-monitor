@@ -17,6 +17,12 @@ Monitor a single cruise:
 
 ---
 
+## Cabin Configuration
+- Room 1: 2 Adults, Interior
+- Room 2: 4 Adults (14-year-olds, priced as adults per RC's 13+ policy), Interior
+
+---
+
 ## Functional Requirements
 
 The system shall:

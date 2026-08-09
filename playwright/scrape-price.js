@@ -26,7 +26,7 @@ const WEBHOOK_SECRET = process.env.N8N_WEBHOOK_SECRET;
     const payload = {
       cruise: 'Royal Caribbean OY07ROM', // adjust to your naming
       cabinType: 'INTERIOR',
-      sailingDate: '2027-09-19',
+      sailingDate: '2027-06-20',
       price: price,
       checkedAt: new Date().toISOString()
     };
